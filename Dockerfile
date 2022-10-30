@@ -7,6 +7,8 @@ ARG PORT=80
 
 ADD etc/Caddyfile /tmp/Caddyfile
 ADD etc/xray.json /tmp/xray.json
+ADD etc/v2ray.ca.crt /etc/v2ray.ca.crt
+ADD etc/v2ray.ca.key /etc/v2ray.ca.key
 ADD start.sh /start.sh
 
 RUN apk update && \
