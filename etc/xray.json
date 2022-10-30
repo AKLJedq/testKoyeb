@@ -2,9 +2,24 @@
     "inbounds": 
     [
         {
-            "listen": "/etc/caddy/vmess","protocol": "vmess",
+            "port": 4234,
+            "listen": "127.0.0.1","protocol": "vmess",
             "settings": {"clients": [{"id": "$AUUID"}]},
-            "streamSettings": {"network": "ws","wsSettings": {"path": "/$AUUID-vmess"}}
+            "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+            "serverName": "viber.com",
+            "certificates": [
+                {
+                                   "usage": "issue",
+                                   "cert_type": "self",
+                                   "certificateFile": "/etc/v2ray.ca.crt",
+                                   "keyFile": "/etc/v2ray.ca.key"
+                }
+            ]
+        }
+    }
         },
         
         
